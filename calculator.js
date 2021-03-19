@@ -6,13 +6,18 @@ var app = new Vue({
       number1: 0,
       number2: 0,
       number3: 0,
-      total: ""
+      total: "",
+      product: ""
     };
   },
   methods: {
     computeSum: function () {
       this.total = (parseInt(this.number1) + parseInt(this.number2) + parseInt(this.number3));
       console.log(this.total); 
+    },
+    computeProduct: function () {
+      this.product = (parseInt(this.number1) * parseInt(this.number2) * parseInt(this.number3));
+      console.log(this.product);
     }
   }
 }
