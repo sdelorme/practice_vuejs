@@ -3,9 +3,11 @@ var app = new Vue({
   el: "#app",
   data: function() {
     return {
-      message: "Hello there,",
+      message: "Hello there",
       secret: "I like turtles",
       showSecret: false,
+      colors: ["red","blue","green","black","white"],
+      newColor: "",
     };
   },
   methods: {
@@ -15,6 +17,13 @@ var app = new Vue({
     toggleSecret: function () {
       console.log("workingggggggg");
       this.showSecret = !this.showSecret;
-    }
-  } 
+    },
+    showColors: function() {
+      console.log(this.colors);
+    },
+    addColor: function() {
+      this.colors.push(this.newColor);
+      this.newColor = "";
+    } 
+  }
 });
