@@ -12,6 +12,10 @@
       <p>{{ message }}</p>
       <input v-model="message" />
       <p><button v-on:click="loudNoises">click here Brick</button></p>
+      <hr />
+      {{showSecret}}
+      <div v-if="showSecret">{{secret}}</div>
+      <button v-on:click="toggleSecret">Show/Hide Secret</button>
     </div>
   </body>
 </html>
