@@ -1,4 +1,6 @@
-/* global Vue */
+/* global Vue, axios */
+axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+
 var app = new Vue({
   el: "#app",
   data: function() {
@@ -8,6 +10,7 @@ var app = new Vue({
       showSecret: false,
       colors: ["red","blue","green","black","white"],
       newColor: "",
+      placesToVisit: []
     };
   },
   methods: {
@@ -24,6 +27,17 @@ var app = new Vue({
     addColor: function() {
       this.colors.push(this.newColor);
       this.newColor = "";
-    } 
+    },
+    loadPlaces: function() { 
+      axios
+        .get("https://jsonplaceholder.typicode.com/todos")
+        .then(response => {
+          console.log(response.data);
+          this.placesToVisit = response.data;
+        });
+    }
+  },
+  created: function () {
+    this.loadPlaces();
   }
 });

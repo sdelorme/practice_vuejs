@@ -11,6 +11,7 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="index.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <h1>Hello from HTML!</h1>
@@ -27,6 +28,9 @@
       <div v-for="color in colors">{{color}}</div>
       <input v-model="newColor" />
       <button v-on:click="addColor">Add color</button>
+      <hr />
+      <button v-on:click="loadPlaces">Check out these places to visit</button>
+      <div v-for="place in placesToVisit">{{place.id}}. {{place.title}}</div>
     </div>
   </body>
 </html>
